@@ -2,13 +2,18 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Route, Switch } from 'react-router-dom'
-import MenuContainer from './Containers/HomeContainer'
+import HomeContainer from './Containers/HomeContainer'
+import LoginContainer from './Containers/LoginContainer'
+import SignUpContainer from './Containers/SignUpContainer'
+
 
 function App() {
   return (
     <div className="App">
         <Switch>
-            <Route path="/" component={MenuContainer} />
+            <Route path="/login" component={LoginContainer} />
+            <Route path="/signup" component={SignUpContainer} />
+            <Route exact path="/" component={HomeContainer} />
             {/* <MenuContainer /> */}
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
