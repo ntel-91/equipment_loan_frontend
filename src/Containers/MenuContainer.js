@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Menu, Modal, Button, Image, Header } from 'semantic-ui-react'
+import { Menu } from 'semantic-ui-react'
 import LoginModal from '../Components/LoginModal'
 import SignUpModal from '../Components/SignUpModal'
 

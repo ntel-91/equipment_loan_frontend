@@ -3,12 +3,6 @@ import { Modal, Button } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 const LoginModal = () => {
-    
-    const handleClick = () => {
-        return(
-            <Link to="/login"/>
-        )
-    }
 
     return (
         <Modal trigger={<Button>Login</Button>}>

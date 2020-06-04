@@ -4,17 +4,17 @@ import AboutContainer from './AboutContainer'
 import {
     Button,
     Container,
-    Divider,
+    // Divider,
     Grid,
     Header,
     Icon,
-    Image,
-    List,
-    Menu,
-    Responsive,
-    Segment,
-    Sidebar,
-    Visibility
+    // Image,
+    // List,
+    // Menu,
+    // Responsive,
+    // Sidebar,
+    // Visibility,
+    Segment
   } from "semantic-ui-react";
 
 const HomepageHeading = ({ mobile }) => (
