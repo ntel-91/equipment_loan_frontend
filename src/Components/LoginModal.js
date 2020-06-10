@@ -1,6 +1,6 @@
 import React from 'react'
-import { Modal, Button } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import { Modal, Button } from 'semantic-ui-react'
 
 const LoginModal = () => {
 

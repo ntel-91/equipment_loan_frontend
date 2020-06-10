@@ -6,33 +6,33 @@ import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react'
 
 const LoginContainer = () => {
     
+    const handleSubmit = () => {
+        
+    }
 
-    const addressDefinitions = faker.definitions.address
-    const stateOptions = _.map(addressDefinitions.state, (state, index) => ({
-        key: addressDefinitions.state_abbr[index],
-        text: state,
-        value: addressDefinitions.state_abbr[index],
-    }))
-    
     return (
         <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
             <Grid.Column style={{ maxWidth: 450 }}>
-                <Header as='h2' textAlign='center'>Sign Up</Header>
-                <Form size='large'>
+                <Header as='h2' textAlign='center'>Login</Header>
+                <Form size='large' onSubmit={handleSubmit}>
                     <Segment stacked>
-
-                        <Form.Input fluid icon='user' iconPosition='left' placeholder='Gym/ Studio Name'/>
-                        <Form.Input fluid icon='lock' iconPosition='left' placeholder='Password' type='password'/>
-                        <Form.Input fluid icon='home' iconPosition='left' placeholder='Address' />
-                        <Form.Group>
-                            <Form.Input fluid placeholder='City' width={10}/>
-                            <Form.Select fluid placeholder='State' options={stateOptions} width={6}/>
-                        </Form.Group>
-                        <Form.Input fluid placeholder='Zip Code' width={8}/>
-                        <Form.Input fluid placeholder='Image (optional)' />
-
+                        <Form.Input 
+                            fluid 
+                            icon='user' 
+                            iconPosition='left' 
+                            placeholder='Gym/ Studio Name' 
+                            // onChange={e => setName(e.target.value)}
+                        />
+                        <Form.Input 
+                            fluid 
+                            icon='lock' 
+                            iconPosition='left' 
+                            placeholder='Password' 
+                            type='password'
+                            // onChange={e => setPassword(e.target.value)}
+                        />
                         <Button fluid size='large'>
-                            Login
+                            Submit
                         </Button>
                     </Segment>
                 </Form>

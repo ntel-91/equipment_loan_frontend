@@ -22,8 +22,7 @@ const SignUpContainer = () => {
     
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(
-            {
+        const gymData = {
             name: name,
             password: password,
             address: address,
@@ -31,8 +30,23 @@ const SignUpContainer = () => {
             state: state,
             zip: zip,
             img: img
-        }   
-        )
+        }
+        handleSignUp(gymData)
+    }
+
+    const handleSignUp = (data) => {
+        fetch('http://localhost:3000/api/v1/gyms',{
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accepts": "application/json"   
+            },
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+        })
     }
 
      
@@ -93,7 +107,7 @@ const SignUpContainer = () => {
                         />
 
                         <Button fluid size='large'>
-                            Sign Up
+                            Submit
                         </Button>
                     </Segment>
                 </Form>
