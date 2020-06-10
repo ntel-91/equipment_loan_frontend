@@ -1,14 +1,18 @@
-import React from 'react'
-import faker from 'faker'
+import React, { useState } from 'react'
 import _ from 'lodash'
 import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react'
 
 
 const LoginContainer = () => {
     
+    const [ name, setName ] = useState('')
+    const [ password, setPassword ] = useState('')
+    
     const handleSubmit = () => {
         
     }
+
+    
 
     return (
         <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
@@ -21,7 +25,7 @@ const LoginContainer = () => {
                             icon='user' 
                             iconPosition='left' 
                             placeholder='Gym/ Studio Name' 
-                            // onChange={e => setName(e.target.value)}
+                            onChange={e => setName(e.target.value)}
                         />
                         <Form.Input 
                             fluid 
@@ -29,7 +33,7 @@ const LoginContainer = () => {
                             iconPosition='left' 
                             placeholder='Password' 
                             type='password'
-                            // onChange={e => setPassword(e.target.value)}
+                            onChange={e => setPassword(e.target.value)}
                         />
                         <Button fluid size='large'>
                             Submit
