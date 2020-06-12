@@ -5,11 +5,31 @@ import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react'
 
 const LoginContainer = () => {
     
-    const [ name, setName ] = useState('')
+    const [ accountName, setAccountName ] = useState('')
     const [ password, setPassword ] = useState('')
     
-    const handleSubmit = () => {
-        
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const gymData = {
+            accountName: accountName,
+            password: password
+        }
+        handleLogin(gymData)
+    }
+
+    const handleLogin = (loginData) => { 
+        fetch("http://localhost:3001/api/v1/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accepts": "application/json"
+            },
+            body: JSON.stringify(loginData)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+        })
     }
 
     
@@ -24,8 +44,8 @@ const LoginContainer = () => {
                             fluid 
                             icon='user' 
                             iconPosition='left' 
-                            placeholder='Gym/ Studio Name' 
-                            onChange={e => setName(e.target.value)}
+                            placeholder='Account Name' 
+                            onChange={e => setAccountName(e.target.value)}
                         />
                         <Form.Input 
                             fluid 
