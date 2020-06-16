@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
-import _ from 'lodash'
 import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react'
 
 
-const LoginContainer = () => {
+const LoginContainer = (props) => {
     
     const [ accountName, setAccountName ] = useState('')
     const [ password, setPassword ] = useState('')
@@ -27,8 +26,15 @@ const LoginContainer = () => {
             body: JSON.stringify(loginData)
         })
         .then(res => res.json())
-        .then(data => {
-            console.log(data)
+        .then(response => {
+            if(response.errors) {
+                alert(response.errors)
+            } else {
+                localStorage.setItem("token", response.token)
+                console.log(props)
+                props.history.push('/')
+                
+            }
         })
     }
 
