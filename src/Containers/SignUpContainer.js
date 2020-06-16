@@ -3,9 +3,10 @@ import faker from 'faker'
 import _ from 'lodash'
 import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react'
 
-const SignUpContainer = () => {
+const SignUpContainer = (props) => {
     
     const [name, setName] = useState('')
+    const [accountName, setAccountName] = useState('')
     const [password, setPassword] = useState('')
     const [address, setAddress] = useState('')
     const [city, setCity] = useState('')
@@ -24,6 +25,7 @@ const SignUpContainer = () => {
         e.preventDefault()
         const gymData = {
             name: name,
+            accountName: accountName,
             password: password,
             address: address,
             city: city,
@@ -35,7 +37,7 @@ const SignUpContainer = () => {
     }
 
     const handleSignUp = (data) => {
-        fetch('http://localhost:3000/api/v1/gyms',{
+        fetch('http://localhost:3001/api/v1/gyms',{
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -44,8 +46,10 @@ const SignUpContainer = () => {
             body: JSON.stringify(data)
         })
         .then(res => res.json())
-        .then(data => {
-            console.log(data)
+        .then(response => {
+            localStorage.setItem("token", response.token)
+            props.history.push('/')
+            
         })
     }
 
@@ -63,6 +67,13 @@ const SignUpContainer = () => {
                             iconPosition='left' 
                             placeholder='Gym/ Studio Name' 
                             onChange={e => setName(e.target.value)}
+                        />
+                        <Form.Input 
+                            fluid 
+                            icon='lock' 
+                            iconPosition='left' 
+                            placeholder='username' 
+                            onChange={e => setAccountName(e.target.value)}
                         />
                         <Form.Input 
                             fluid 
